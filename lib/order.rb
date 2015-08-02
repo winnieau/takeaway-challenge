@@ -1,20 +1,11 @@
 require_relative 'menu'
+require_relative 'customer'
 
 class Order
-  attr_reader :want
 
-
-  def initialize
-    @want = false
+  def item_count
+    items.nil? ? 0 : @items.count
   end
 
-  def want?
-    @want
-  end
-
-  def want
-    @want = true
-  end
-
-
+  
 end

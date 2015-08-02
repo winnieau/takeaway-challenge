@@ -1,30 +1,21 @@
 require_relative 'order'
+require_relative 'customer'
 
 class Menu
   attr_reader :options, :input
 
   def initialize
-    @options = { 'truffle fries': 9.25, 'house salad': 4.25, 'caesar salad': 3.55,
-     'greek salad': 4.25, 'loaded baked potato soup': 3.25, 'clam chowder': 3.25,
-    'minestrone': 3.25, 'lobster bisque': 3.25, 'fish and chips': 11.75,
-   'fillet mignon': 18.95, 'chicken parmesan': 12.55, 'shrimp alfredo':12.55 }
+    @options = { 'truffle fries': 9, 'house salad': 4, 'caesar salad': 3,
+     'greek salad': 4, 'loaded baked potato soup': 3, 'clam chowder': 3,
+    'minestrone': 3, 'lobster bisque': 3, 'fish and chips': 11,
+   'fillet mignon': 18, 'chicken parmesan': 12, 'shrimp alfredo':12 }
     @items_ordered= []
 
   end
 
-  def list_options
+  def greeter
+    puts "Hello, welcome to Winnie's restaurant, here is the menu:"
     options.each {|list| puts list}
-  end
-
-  def add_to_order item, price
-    options.map do |item, price|
-      puts "#{item}: #{price}" if item.want?
-    end
-    @items_ordered << options
-  end
-
-
-  def wanted_items
-    @wanted.select {|item| item.want?}
+    puts "When you are ready to order, please select item(s) from the menu."
   end
 end
